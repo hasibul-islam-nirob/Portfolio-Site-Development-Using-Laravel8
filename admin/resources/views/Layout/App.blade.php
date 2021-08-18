@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title> @yield("title") </title>
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -17,13 +17,22 @@
     <link rel="stylesheet" href="{{ asset('css/datatables-select.min.css') }}">
 
 </head>
-<body>
+<body class="fix-header fix-sidebar">
     
+@include('Layout.Menu')
+
+    @yield("content")
+
+
+
+    
+</div>
+</div>
 
 
 
 
-
+    @yield("script")
     <script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
