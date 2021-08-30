@@ -1,3 +1,9 @@
 @extends('Layout.App')
 
-@include('Components.TopBanner')
+@section('content')
+    @include('Components.TopBanner');
+    @include('Components.Services');
+@endsection
+
+
+

@@ -14,5 +14,5 @@ Route::get('/', function () {
 Route::get('/visitor', [VisitorController::class, 'visitorIndex']);
 
 
-Route::get('/setting', [SettingController::class,'settingPage']);
-Route::get('/getTopBanner',[SettingController::class, 'getDataTopBanner']);
+Route::get('/setting', [SettingController::class,'settingIndex']);
+Route::post('/insertDataTopBanner', [SettingController::class, 'insertDataTopBanner']);

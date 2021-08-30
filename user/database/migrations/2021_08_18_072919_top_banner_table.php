@@ -13,11 +13,11 @@ class TopBannerTable extends Migration
      */
     public function up()
     {
-        Schema::create('topBanner_table', function (Blueprint $table){
+        Schema::create('topbanner_table', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('topBannerTitle',250);
-            $table->string('topBannerSubTitle',150);
-            $table->string('topBannerSortDesc',50);
+            $table->string('title',250);
+            $table->string('subTitle',150);
+            $table->string('sortDesc',50);
 
         });
     }
