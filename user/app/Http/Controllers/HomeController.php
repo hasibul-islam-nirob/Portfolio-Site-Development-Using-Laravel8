@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\VisitorModel;
+use App\Models\ServicesModel;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,11 @@ class HomeController extends Controller
         $mac_address = exec('getmac');
 
         VisitorModel::insert(['ip_address'=>$ip_address,'mac_address'=>$mac_address, 'visiting_time'=>$dateTime]);
-        return view('Home');
+
+        $serviceData = json_decode(ServicesModel::all());
+
+        return view('Home',[
+            'servicesData'=> $serviceData
+        ]);
     }
 }
