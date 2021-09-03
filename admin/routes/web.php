@@ -21,3 +21,4 @@ Route::post('/insertDataTopBanner', [SettingController::class, 'insertDataTopBan
 
 Route::get('/service',[ServicesController::class, 'servicesIndex']);
 Route::get('/getServicesData',[ServicesController::class, 'getServicesData']);
+Route::post('/serviceDelete',[ServicesController::class, 'serviceDelete']);
