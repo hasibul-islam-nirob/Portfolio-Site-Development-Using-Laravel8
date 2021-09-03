@@ -26,6 +26,22 @@ class ServicesController extends Controller
     }
 
 
+    function addNewService(Request $req){
+        
+        $title = $req->input('title');
+        $sortDes = $req->input('sortDes');
+        $imgURL = $req->input('imgURL');
+        $result = ServicesModel::insert(['serviceName'=>$title, 'serviceDes'=>$sortDes, 'serviceImg'=>$imgURL]);
+
+        if ($result == true) {
+            return 1;
+        } else {
+            return 0;
+        }
+         
+    }
+
+
     function serviceUpdate(Request $req){
         
         $id = $req->input('id');

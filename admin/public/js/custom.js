@@ -54,15 +54,48 @@ function getServicesData(){
 }
 
 
+// Add New Services
+$('#addNewServicesBtn').click(()=>{
+    $('#AddNewDataModal').modal('show');
+})
 
+$('#addNewConfirmBtn').click(()=>{
+    let title   = $('#serviceTitleInput').val();
+    let sortDes = $('#serviceSortDesInput').val();
+    let imgURL  = $('#serviceImgURLInput').val();
 
+    $('#AddNewDataModal').modal('hide');
+    addNewService(title, sortDes, imgURL);
+})
 
+function addNewService(title, sortDes, imgURL) { 
+
+    $('#addNewConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
+    
+    axios.post('/addNewServices', {title:title, sortDes:sortDes, imgURL:imgURL })
+    .then((res)=>{
+
+        if (res.status==200 && res.data == 1) {
+            $('#addNewConfirmBtn').html("Save");
+            toastr.success('Data Insert Success..');
+            getServicesData();
+        } else {
+            $('#addNewConfirmBtn').html("Save");
+            toastr.error('Data Insert Fail..');
+        }
+
+    }).catch((err) => {
+        $('#addNewConfirmBtn').html("Save");
+        toastr.error('Somthing went wrong..');
+    })
+
+}
 
 
 
 // Services Update
 $('#dataUpdateConfirmBtn').click(function(){
-    let id      =  $('#modalEditDataID').html();
+    let id      = $('#modalEditDataID').html();
     let title   = $('#serviceTitle').val();
     let sortDes = $('#serviceSortDes').val();
     let imgURL  = $('#serviceImgURL').val();
@@ -155,3 +188,7 @@ function servicesDelete(deleteID) {
     
 
 }
+
+
+
+

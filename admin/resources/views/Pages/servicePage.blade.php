@@ -3,8 +3,12 @@
 @section('content')
 
 <div id="servicesDataTable" class="container d-none">
+
 	<div class="row">
 		<div class="col-md-12 p-5">
+
+			<button id="addNewServicesBtn" type="button" class="btn btn-danger mb-2">Add New Service</button>
+
 			<table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				<thead>
 					<tr>
@@ -24,6 +28,57 @@
 		</div>
 	</div>
 </div>
+
+
+
+
+<!-- Data Edit Modal Div -->
+<!-- Central Modal Small -->
+<div class="modal fade" id="AddNewDataModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+	<!-- Change class .modal-sm to change the size of the modal -->
+	<div class="modal-dialog modal-lg" role="document">
+		
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title w-100 text-center" id="myModalLabel">Add New Services </h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+
+				<div id="addNewModalForm" class="modal-body">
+					<form action="">
+						<div class="">
+							<label for="serviceTitleInput">Services Title</label>
+							<input type="text" id="serviceTitleInput" class="form-control">
+						</div>
+						<div class="">
+							<label for="serviceSortDesInput">Services Sort Description</label>
+							<input type="text" id="serviceSortDesInput" class="form-control">
+							
+						</div>
+						<div class="">
+							<label for="serviceImgURLInput">Services Img URL</label>
+							<input type="Text" id="serviceImgURLInput" class="form-control">
+							
+						</div>
+						
+					</form>
+				
+				</div>
+
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>
+					<button id="addNewConfirmBtn" type="button" class="btn btn-danger btn-sm">Save</button>
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Central Add New Modal Small -->
 
 
 <!-- Loading Div -->
