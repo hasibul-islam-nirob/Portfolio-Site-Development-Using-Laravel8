@@ -18,6 +18,31 @@ class ServicesController extends Controller
     }
 
 
+    function serviceSelectByID(Request $req){
+        
+        $id = $req->input('id');
+        return $result = json_encode(ServicesModel::where('id','=',$id)->get());
+         
+    }
+
+
+    function serviceUpdate(Request $req){
+        
+        $id = $req->input('id');
+        $title = $req->input('title');
+        $sortDes = $req->input('sortDes');
+        $imgURL = $req->input('imgURL');
+        $result = ServicesModel::where('id','=',$id)->update(['serviceName'=>$title, 'serviceDes'=>$sortDes, 'serviceImg'=>$imgURL]);
+
+        if ($result == true) {
+            return 1;
+        } else {
+            return 0;
+        }
+         
+    }
+
+
     function serviceDelete(Request $req){
         
         $id = $req->input('id');

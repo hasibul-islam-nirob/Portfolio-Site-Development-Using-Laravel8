@@ -58,7 +58,7 @@
 				</button>
 
 				<h4 class="text-center p-3 mt-2" >Do you want to delete  ?</h4>
-				<h4 id="modalDataID" class="text-center d-none" ></h4>
+				<h4 id="modalDeleteDataID" class="text-center d-none" ></h4>
 			
 			</div>
 			<div class="modal-footer">
@@ -72,11 +72,73 @@
 
 
 
+<!-- Data Edit Modal Div -->
+<!-- Central Modal Small -->
+<div class="modal fade" id="editDataModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+	<!-- Change class .modal-sm to change the size of the modal -->
+	<div class="modal-dialog modal-lg" role="document">
+		
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title w-100" id="myModalLabel">Update Services </h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 
 
+				<div id="updateModalForm" class="modal-body d-none">
+					<h4 id="modalEditDataID" class="text-center " ></h4>
+
+					<form action="">
+						<div class="">
+							<label >Services Title</label>
+							<input type="text" id="serviceTitle" value="" class="form-control">
+						</div>
+						<div class="">
+							<label for="serviceTitleDes">Services Sort Description</label>
+							<input type="text" id="serviceSortDes" value="" class="form-control">
+							
+						</div>
+						<div class="">
+							<label for="serviceTitle">Services Img URL</label>
+							<input type="Text" id="serviceImgURL" value="" class="form-control">
+							
+						</div>
+						
+					</form>
+				
+				</div>
 
 
+				<!-- Loading Div -->
+				<div id="editLoadingDiv" class="container">
+					<div class="row">
+						<div class="col-md-12 text-center p-5">
+							<img src="{{ asset('images/Loading1.svg') }}" alt="ggggg">
+						</div>
+					</div>
+				</div>
+				<!-- Wrong Div -->
+				<div id="editWrongDiv" class="container d-none">
+					<div class="row">
+						<div class="col-md-12 text-center p-5">
+							<h1>Somthing went wrong............</h1>
+						</div>
+					</div>
+				</div>
 
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>
+					<button id="dataUpdateConfirmBtn" type="button" class="btn btn-danger btn-sm">Update</button>
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Central Edit Modal Small -->
 
 
 
