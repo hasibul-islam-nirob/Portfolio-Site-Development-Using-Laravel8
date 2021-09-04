@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class CoursesModel extends Model
+{
+    use HasFactory;
+
+    public $table='courses';
+    public $primaryKey='id';
+    public $incrementing=true;
+    public $keyType='int';
+    public  $timestamps=false;
+
+    public static function pluck(string $string, string $string1, string $string2)
+    {
+    }
+
+}

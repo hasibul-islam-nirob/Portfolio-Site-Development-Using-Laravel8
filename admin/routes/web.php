@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\ServicesController;
@@ -25,3 +26,6 @@ Route::post('/serviceDelete',[ServicesController::class, 'serviceDelete']);
 Route::post('/serviceSelectByID',[ServicesController::class, 'serviceSelectByID']);
 Route::post('/serviceUpdate',[ServicesController::class, 'serviceUpdate']);
 Route::post('/addNewServices',[ServicesController::class, 'addNewService']);
+
+
+Route::get('/courses', [CoursesController::class, 'CoursesIndex']);
