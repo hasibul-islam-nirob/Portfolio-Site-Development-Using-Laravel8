@@ -145,7 +145,7 @@
 
 
 				<div id="updateModalForm" class="modal-body d-none">
-					<h4 id="modalEditDataID" class="text-center " ></h4>
+					<h4 id="modalEditDataID" class="text-center d-none" ></h4>
 
 					<form action="">
 						<div class="">

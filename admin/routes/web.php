@@ -29,3 +29,8 @@ Route::post('/addNewServices',[ServicesController::class, 'addNewService']);
 
 
 Route::get('/courses', [CoursesController::class, 'CoursesIndex']);
+Route::get('/getCoursesData', [CoursesController::class, 'getAllCourses']);
+Route::post('/courseDelete', [CoursesController::class, 'courseDelete']);
+Route::post('/courseSelectByID', [CoursesController::class, 'courseSelectByID']);
+Route::post('/courseUpdate', [CoursesController::class, 'courseUpdate']);
+Route::post('/addNewCourse', [CoursesController::class, 'addNewCourse']);
