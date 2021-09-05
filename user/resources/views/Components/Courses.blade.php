@@ -9,7 +9,7 @@
             <div class="thumbnail-middle">
                 <h1 class="thumbnail-title"> {{$coursesData->courseName}} </h1>
                 <h1 class="thumbnail-subtitle"> {{$coursesData->courseSortDes}} </h1>
-                <button class="normal-btn btn">Enrol Now</button>
+                <button class="normal-btn btn">Details</button>
             </div>
         </div>
         @endforeach

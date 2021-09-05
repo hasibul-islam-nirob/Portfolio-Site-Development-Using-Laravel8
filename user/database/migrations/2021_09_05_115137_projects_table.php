@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CoursesTable extends Migration
+class ProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('courses',function(Blueprint $table){
+        Schema::create('projects',function(Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('courseName');
-            $table->string('courseSortDes');
-            $table->string('courseDes',1000);
-            $table->string('totalClass');
-            $table->string('totalStudents');
-            $table->string('price');
-            $table->string('courseImg');
+            $table->string('projectName');
+            $table->string('projectDes');
+            $table->string('projectImg');
         });
     }
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\ServicesController;
 
 
@@ -34,3 +35,13 @@ Route::post('/courseDelete', [CoursesController::class, 'courseDelete']);
 Route::post('/courseSelectByID', [CoursesController::class, 'courseSelectByID']);
 Route::post('/courseUpdate', [CoursesController::class, 'courseUpdate']);
 Route::post('/addNewCourse', [CoursesController::class, 'addNewCourse']);
+
+
+Route::get('/projects',[ProjectsController::class, 'projectsIndex']);
+Route::get('/getProjects',[ProjectsController::class, 'getAllProjects']);
+
+
+
+
+
+

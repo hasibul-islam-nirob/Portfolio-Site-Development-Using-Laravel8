@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\VisitorModel;
 use App\Models\ServicesModel;
 use App\Models\CoursesModel;
+use App\Models\ProjectsModel;
 
 class HomeController extends Controller
 {
@@ -18,10 +19,12 @@ class HomeController extends Controller
         VisitorModel::insert(['ip_address'=>$ip_address,'mac_address'=>$mac_address, 'visiting_time'=>$dateTime]);
         $serviceData = json_decode(ServicesModel::all());
         $coursesData = json_decode(CoursesModel::all());
+        $projectsData = json_decode(ProjectsModel::all());
 
         return view('Home',[
             'servicesData'=> $serviceData,
-            'coursesData'=>$coursesData
+            'coursesData'=>$coursesData,
+            'projectsData'=>$projectsData
         ]);
     }
 }
