@@ -39,15 +39,14 @@
 
 
 
-@section('script')
-<script>
+@section('jsScript')
+
+<script type="text/javascript" >
 
 $(document).ready(function () {
     $('#VisitorDt').DataTable();
     $('.dataTables_length').addClass('bs-select');
 });
-
-
 
 
 
