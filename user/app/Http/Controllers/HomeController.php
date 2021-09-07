@@ -7,6 +7,9 @@ use App\Models\VisitorModel;
 use App\Models\ServicesModel;
 use App\Models\CoursesModel;
 use App\Models\ProjectsModel;
+use App\Models\ClientReviewModel;
+use App\Models\topBannerModel;
+
 
 class HomeController extends Controller
 {
@@ -18,13 +21,17 @@ class HomeController extends Controller
 
         VisitorModel::insert(['ip_address'=>$ip_address,'mac_address'=>$mac_address, 'visiting_time'=>$dateTime]);
         $serviceData = json_decode(ServicesModel::all());
-        $coursesData = json_decode(CoursesModel::all());
+        $coursesData = json_decode(CoursesModel::orderby('id','desc')->limit(6)->get() );
         $projectsData = json_decode(ProjectsModel::all());
+        $reviewData = json_decode(ClientReviewModel::all());
+        $topBannerData = json_decode(topBannerModel::where('id','=','1')->get());
 
         return view('Home',[
+            'topBannerData'=>$topBannerData,
             'servicesData'=> $serviceData,
             'coursesData'=>$coursesData,
-            'projectsData'=>$projectsData
+            'projectsData'=>$projectsData,
+            'reviewData'=>$reviewData
         ]);
     }
 }
