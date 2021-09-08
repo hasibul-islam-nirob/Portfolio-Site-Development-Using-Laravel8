@@ -9,6 +9,7 @@ use App\Models\CoursesModel;
 use App\Models\ProjectsModel;
 use App\Models\ClientReviewModel;
 use App\Models\topBannerModel;
+use App\Models\ContactModel;
 
 
 class HomeController extends Controller
@@ -34,4 +35,28 @@ class HomeController extends Controller
             'reviewData'=>$reviewData
         ]);
     }
+
+
+    function sendContact(Request $req){
+        $name = $req->input('name');
+        $mobile = $req->input('mobile');
+        $email = $req->input('email');
+        $massage = $req->input('massage');
+
+        $result = ContactModel::insert([
+            'name'=>$name,
+            'mobileNo'=>$mobile,
+            'email'=>$email,
+            'msg'=>$massage,
+            'status'=>'0'
+        ]);
+
+        if ($result == true) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+
 }

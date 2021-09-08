@@ -7,4 +7,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[HomeController::class, 'homeIndex']);
-Route::get('/ff',[topBannerController::class, 'topBannerIndex']);
+Route::post('/sendMassage',[HomeController::class, 'sendContact']);
+

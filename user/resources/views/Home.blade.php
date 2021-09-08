@@ -6,6 +6,7 @@
     @include('Components.Courses');
     @include('Components.Projects');
     @include('Components.ClientFeedback');
+    @include('Components.Contact');
 @endsection
 
 
