@@ -17,27 +17,51 @@
                             </div>
                     
                             <!--Body-->
+
+                            @empty($topBannerData)
                             <div class="modal-body py-2">
                                 <div>
-                                    <input type="text" id="topBannerTitle" class="form-control validate">
-                                    <label data-error="wrong" for="topBannerTitle">Top Banner Title </label>
+                                    <label data-error="wrong">Top Banner Title </label>
+                                    <input value="" type="text" id="topBannerTitleEm" class="form-control validate">
                                 </div>
 
                                 <div>
-                                    <input type="text" id="topBannerSubTitle" class="form-control validate">
-                                    <label data-error="wrong" for="topBannerSubTitle">Top Banner Title </label>
+                                    <label data-error="wrong" >Top Banner Sub Title </label>
+                                    <input value="" type="text" id="topBannerSubTitleEm" class="form-control validate">
                                 </div>
 
                                 <div>
-                                    <input type="text" id="topBannerSortDesc" class="form-control validate">
-                                    <label data-error="wrong"  for="topBannerSortDesc">Top Banner Title </label>
+                                    <label data-error="wrong" >Top Banner Description </label>
+                                    <input value="" type="text" id="topBannerSortDescEm" class="form-control validate">
                                 </div>
 
                             </div>
-                    
+                            @endempty
+
+                            @foreach ($topBannerData as $topBannerData)
+                            <div class="modal-body py-2">
+                                <div>
+                                    <label data-error="wrong">Top Banner Title </label>
+                                    <input value="{{ $topBannerData->title }}" type="text" id="topBannerTitle" class="form-control validate">
+                                </div>
+
+                                <div>
+                                    <label data-error="wrong" >Top Banner Sub Title </label>
+                                    <input value="{{ $topBannerData->subTitle }}" type="text" id="topBannerSubTitle" class="form-control validate">
+                                </div>
+
+                                <div>
+                                    <label data-error="wrong" >Top Banner Description </label>
+                                    <input value="{{ $topBannerData->sortDesc }}" type="text" id="topBannerSortDesc" class="form-control validate">
+                                </div>
+
+                            </div>
+                            @endforeach
+                            
                             <!--Footer-->
-                            <div class="modal-footer justify-content-center">
-                            <button id="submitBtnTopBanner" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>
+                            <div class="modal-footer justify-content-center">    
+                                <button id="InsertBtnTopBanner" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>                          
+                                <button id="UpdateBtnTopBanner" class="btn btn-success waves-effect">Update <i class="fas fa-paper-plane-o ml-1"></i></a>
                             </div>
                         </div>
                         <!--/.Content-->
@@ -104,32 +128,14 @@
 
 
 /*
-    $('#submitBtnTopBanner').click(function(){
-        var title    = $('#topBannerTitle').val();
-        var subtitle = $('#topBannerSubTitle').val();
-        var desc     = $('#topBannerSortDesc').val();
-      
-       alert(title+" "+subtitle+" "+desc);
-        DataUploadTop(title, subtitle, desc);
-    })
-
-    function DataUploadTop(title, subtitle, desc){
-        alert("function call")
-        axios.post("/insertDataTopBanner",{ title:title, subTitle:subtitle, sortDes:desc })
-        .then(function(response){
-            if (response.data == 1) {
-                alert("Data Insert Success");
-            }else{
-                alert("Data Insert Faild");
-            }
-        }).catch(function(error){
-            alert("Somthing Wrong");
-        })
-
-    }
+    
 */
 
 </script>
 
 @endsection
+
+
+
+
 

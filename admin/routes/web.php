@@ -18,8 +18,8 @@ Route::get('/visitor', [VisitorController::class, 'visitorIndex']);
 
 
 Route::get('/setting', [SettingController::class,'settingIndex']);
-Route::post('/insertDataTopBanner', [SettingController::class, 'insertDataTopBanner']);
-
+Route::post('/toBannerDataUpdate', [SettingController::class, 'toBannerDataUpdate']);
+Route::post('/toBannerDataInsert', [SettingController::class, 'toBannerDataInsert']);
 
 Route::get('/service',[ServicesController::class, 'servicesIndex']);
 Route::get('/getServicesData',[ServicesController::class, 'getServicesData']);
