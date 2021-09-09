@@ -2,11 +2,14 @@
 
 @section('content')
 
-<div id="massageDataTable" class="container ">
+<div id="massageDataTable" class="container d-none">
 
 	<div class="row">
 		<div class="col-md-12 p-5">
 
+			<a href="{{ url('/seenBox') }}" >
+				<button id="" type="button" class="btn btn-danger mb-2">Message Seen Box</button>
+			</a>
 			<table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				<thead>
 					<tr>
@@ -19,6 +22,7 @@
 				</thead>
 
 				<tbody id="massageTable">
+					
 					
 				</tbody>
 
