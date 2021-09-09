@@ -18,17 +18,17 @@
                     
                             <!--Body-->
                             <div class="modal-body py-2">
-                                <div class="md-form">
+                                <div>
                                     <input type="text" id="topBannerTitle" class="form-control validate">
                                     <label data-error="wrong" for="topBannerTitle">Top Banner Title </label>
                                 </div>
 
-                                <div class="md-form">
+                                <div>
                                     <input type="text" id="topBannerSubTitle" class="form-control validate">
                                     <label data-error="wrong" for="topBannerSubTitle">Top Banner Title </label>
                                 </div>
 
-                                <div class="md-form">
+                                <div>
                                     <input type="text" id="topBannerSortDesc" class="form-control validate">
                                     <label data-error="wrong"  for="topBannerSortDesc">Top Banner Title </label>
                                 </div>
@@ -100,6 +100,10 @@
 
 <script type="text/javascript">
 
+
+
+
+/*
     $('#submitBtnTopBanner').click(function(){
         var title    = $('#topBannerTitle').val();
         var subtitle = $('#topBannerSubTitle').val();
@@ -123,7 +127,7 @@
         })
 
     }
-
+*/
 
 </script>
 

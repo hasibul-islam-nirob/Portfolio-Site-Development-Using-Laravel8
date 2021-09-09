@@ -58,7 +58,6 @@ Route::get('/getMassage',[MassageController::class, 'getMassageData']);
 Route::get('/seenBox',[MassageController::class, 'seenBoxIndex']);
 Route::post('/messageSelectByID',[MassageController::class, 'getMessageByID']);
 Route::post('/messageSeen',[MassageController::class, 'messageSeened']);
-
 Route::get('/getUnseenMassage',[MassageController::class, 'getSeenedMassageData']);
 Route::post('/messageUnSeen',[MassageController::class, 'messageUnSeened']);
 Route::post('/deleteMessage',[MassageController::class, 'messageDelete']);
