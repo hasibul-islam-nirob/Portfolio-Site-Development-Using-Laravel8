@@ -36,6 +36,11 @@
                                 </div>
 
                             </div>
+
+                            <!--Footer-->
+                            <div class="modal-footer justify-content-center">    
+                                <button id="InsertBtnTopBanner" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>                          
+                            </div>
                             @endempty
 
                             @foreach ($topBannerData as $topBannerData)
@@ -56,13 +61,15 @@
                                 </div>
 
                             </div>
-                            @endforeach
-                            
+
+
                             <!--Footer-->
                             <div class="modal-footer justify-content-center">    
-                                <button id="InsertBtnTopBanner" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>                          
                                 <button id="UpdateBtnTopBanner" class="btn btn-success waves-effect">Update <i class="fas fa-paper-plane-o ml-1"></i></a>
                             </div>
+                            @endforeach
+                            
+                            
                         </div>
                         <!--/.Content-->
                     </div>
@@ -125,17 +132,95 @@
 <script type="text/javascript">
 
 
+/*
+======================> Start Top Banner Part  <================================
+*/
 
+/// Insert
+$('#InsertBtnTopBanner').click(function() {
+    var title = $('#topBannerTitleEm').val();
+    var subtitle = $('#topBannerSubTitleEm').val();
+    var desc = $('#topBannerSortDescEm').val();
+    toBannerDataInsert(title, subtitle, desc);
+})
+
+function toBannerDataInsert(title, subtitle, desc) {
+
+    $('#InsertBtnTopBanner').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
+
+    axios.post("/toBannerDataInsert", { title: title, subTitle: subtitle, sortDes: desc })
+        .then(function(response) {
+            if (response.status == 200 && response.data == 1) {
+                $('#InsertBtnTopBanner').html("Insert Success..");
+                setTimeout(function() {
+                    $('#InsertBtnTopBanner').html("Update");
+                }, 2000);
+            } else {
+                $('#InsertBtnTopBanner').html("Insert Fail..");
+                setTimeout(function() {
+                    $('#InsertBtnTopBanner').html("Save");
+                }, 2000);
+
+            }
+        }).catch(function(error) {
+            $('#InsertBtnTopBanner').html("Something Went Wrong..");
+            setTimeout(function() {
+                $('#InsertBtnTopBanner').html("Save");
+            }, 2000);
+        })
+
+}
+
+
+
+/// Update
+$('#UpdateBtnTopBanner').click(function() {
+    var title = $('#topBannerTitle').val();
+    var subtitle = $('#topBannerSubTitle').val();
+    var desc = $('#topBannerSortDesc').val();
+    toBannerDataUpdate(title, subtitle, desc);
+
+})
+
+function toBannerDataUpdate(title, subtitle, desc) {
+
+    $('#UpdateBtnTopBanner').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
+
+    axios.post("/toBannerDataUpdate", { title: title, subTitle: subtitle, sortDes: desc })
+        .then(function(response) {
+            if (response.status == 200 && response.data == 1) {
+
+                $('#UpdateBtnTopBanner').html("Update Success..");
+                setTimeout(function() {
+                    $('#UpdateBtnTopBanner').html("Update");
+                }, 2000);
+
+            } else {
+
+                
+                $('#UpdateBtnTopBanner').html("Update Fail..");
+                setTimeout(function() {
+                    $('#UpdateBtnTopBanner').html("Update");
+                }, 2000);
+            }
+        }).catch(function(error) {
+            $('#UpdateBtnTopBanner').html("Something Went Wrong");
+            setTimeout(function() {
+                $('#UpdateBtnTopBanner').html("Update");
+            }, 2000);
+        })
+
+}
 
 /*
-    
+======================> End Top Banner Part  <================================
 */
+
+
+
+
+
 
 </script>
 
 @endsection
-
-
-
-
-
