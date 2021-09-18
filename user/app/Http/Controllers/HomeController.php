@@ -15,6 +15,7 @@ use App\Models\FooterModel;
 
 class HomeController extends Controller
 {
+
     function homeIndex(){
         $ip_address = $_SERVER['REMOTE_ADDR'];
         date_default_timezone_set('Asia/Dhaka');

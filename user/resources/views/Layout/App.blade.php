@@ -22,6 +22,7 @@
 
 @yield("content")
 
+@include('Components.FooterTop')
 @include('Layout.Footer')
 
 @yield("script")

@@ -2,33 +2,35 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-3 col-lg-3 col-sm-6">
-                <h3 class="service-card-title">অনুসরণ </h3>
-                <hr>
-                <p><a target="_blank" href="" class="footer-link"><i class="fab fa-facebook-f"></i> ফেছবুক </a></p>
-                <p><a target="_blank" href="" class="footer-link"><i class="fab fa-youtube"></i> ইউটিউব </a></p>
-            </div>
-            <div class="col-md-3 col-lg-3 col-sm-6">
-                <h3 class="service-card-title">ঠিকানা</h3>
-                <hr>
-                <p class="footer-text"><i class="fas fa-map-marker-alt"></i> শেখেরটেক ৮ মোহাম্মদপুর, ঢাকা </p>
-                <p class="footer-text"><i class="fas fa-phone"></i> ০১৭৮৫৩৮৮৯১৯ </p>
-                <p class="footer-text"><i class="fas fa-envelope"></i> Rabbil@Yahoo.com</p>
-            </div>
+            @foreach($footerData as $footerData)
+                <div class="col-md-3 col-lg-3 col-sm-6">
+                    <h3 class="service-card-title">Follow </h3>
+                    <hr>
+                    <p><a target="_blank" href="{{$footerData->fb_link}}" class="footer-link"><i class="fab fa-facebook-f"></i> Facebook </a></p>
+                    <p><a target="_blank" href="{{$footerData->git_link}}" class="footer-link"><i class="fab fa-github"></i> GitHub </a></p>
+                    <p><a target="_blank" href="{{$footerData->ln_link}}" class="footer-link"><i class="fab fa-linkedin-in"></i> LinkedIn </a></p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-6">
+                    <h3 class="service-card-title">Address</h3>
+                    <hr>
+                    <p class="footer-text"><i class="fas fa-map-marker-alt">  </i>{{$footerData->address}}</p>
+                    <p class="footer-text"><i class="fas fa-phone"></i>  {{$footerData->mobileNo	}} </p>
+                    <p class="footer-text"><i class="fas fa-envelope"></i>  {{$footerData->mailAdd}}</p>
+                </div>
+            @endforeach
 
-
             <div class="col-md-3 col-lg-3 col-sm-6">
-                <h3 class="service-card-title">তথ্য </h3>
+                <h3 class="service-card-title">Info </h3>
                 <hr>
-                <a class="footer-link" target="_blank"  href="http://rabbil.com/">যোগাযোগ</a><br>
-                <a class="footer-link" target="_blank"  href="http://rabbil.com/">প্রজেক্ট সমূহ</a><br>
-                <a class="footer-link" target="_blank"  href="http://rabbil.com/">কোর্স সমূহ </a><br>
+                <a class="footer-link" target="_blank"  href="{{url('/contact')}}">Contact</a><br>
+                <a class="footer-link" target="_blank"  href="{{url('/projects')}}">Projects</a><br>
+                <a class="footer-link" target="_blank"  href="{{url('/courses')}}">Courses </a><br>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-6">
-                <h3 class="service-card-title">আইনি</h3>
+                <h3 class="service-card-title">Law's</h3>
                 <hr>
-                <a class="footer-link" target="_blank" href="">ফেরত নীতি</a><br>
-                <a class="footer-link" target="_blank" href="">শর্ত সমূহ </a><br>
+                <a class="footer-link" target="_blank" href="{{url('/')}}">Return Policy</a><br>
+                <a class="footer-link" target="_blank" href="{{url('/')}}">Trams & Condition </a><br>
             </div>
         </div>
     </div>
