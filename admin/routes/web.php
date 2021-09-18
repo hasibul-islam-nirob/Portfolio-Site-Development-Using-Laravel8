@@ -20,6 +20,8 @@ Route::get('/visitor', [VisitorController::class, 'visitorIndex']);
 Route::get('/setting', [SettingController::class,'settingIndex']);
 Route::post('/toBannerDataUpdate', [SettingController::class, 'toBannerDataUpdate']);
 Route::post('/toBannerDataInsert', [SettingController::class, 'toBannerDataInsert']);
+Route::post('/footerDataInsert', [SettingController::class, 'footerDataInsert']);
+Route::post('/footerDataUpdate', [SettingController::class, 'footerDataUpdate']);
 
 Route::get('/service',[ServicesController::class, 'servicesIndex']);
 Route::get('/getServicesData',[ServicesController::class, 'getServicesData']);

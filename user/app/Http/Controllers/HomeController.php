@@ -10,6 +10,7 @@ use App\Models\ProjectsModel;
 use App\Models\ClientReviewModel;
 use App\Models\topBannerModel;
 use App\Models\ContactModel;
+use App\Models\FooterModel;
 
 
 class HomeController extends Controller
@@ -26,13 +27,15 @@ class HomeController extends Controller
         $projectsData = json_decode(ProjectsModel::all());
         $reviewData = json_decode(ClientReviewModel::all());
         $topBannerData = json_decode(topBannerModel::where('id','=','1')->get());
+        $footerData = json_decode(FooterModel::where('id','=','1')->get());
 
         return view('Home',[
             'topBannerData'=>$topBannerData,
             'servicesData'=> $serviceData,
             'coursesData'=>$coursesData,
             'projectsData'=>$projectsData,
-            'reviewData'=>$reviewData
+            'reviewData'=>$reviewData,
+            'footerData'=>$footerData
         ]);
     }
 
