@@ -12,6 +12,8 @@ class LoginController extends Controller
     }
 
 
+    
+
     function onLogOut(Request $req){
         $req->session()->flush();
         return redirect('/login');
