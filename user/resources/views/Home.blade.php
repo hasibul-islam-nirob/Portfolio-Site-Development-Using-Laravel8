@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Home')
 @section('content')
     @include('Components.TopBanner')
     @include('Components.Services')

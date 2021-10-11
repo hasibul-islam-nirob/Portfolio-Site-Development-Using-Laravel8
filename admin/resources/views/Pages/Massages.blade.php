@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Messages')
 @section('content')
 
 <div id="massageDataTable" class="container d-none">
@@ -22,8 +22,8 @@
 				</thead>
 
 				<tbody id="massageTable">
-					
-					
+
+
 				</tbody>
 
 			</table>
@@ -58,7 +58,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100" id="myModalLabel">Your Massage </h4>
@@ -73,7 +73,7 @@
 
 					<form action="">
 
-						
+
 						<div>
 							<label >Name</label>
 							<input type="text" id="msgName" value="" disabled class="form-control">
@@ -81,23 +81,23 @@
 						<div class="">
 							<label>Phone Number</label>
 							<input type="Text" id="msgNumber" value="" disabled class="form-control">
-	
+
 						</div>
 
 						<div >
 							<label>E-Mail Adddress</label>
 							<input type="Text" id="msgMail" value="" disabled class="form-control">
-							
+
 						</div>
 
 						<div >
 							<label>Massage</label>
 							<textarea id="msgText" value=""disabled class="form-control" rows="5" cols="50"></textarea>
-							
+
 						</div>
 
 					</form>
-				
+
 				</div>
 
 

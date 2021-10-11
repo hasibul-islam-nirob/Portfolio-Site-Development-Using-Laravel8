@@ -1,6 +1,6 @@
 
 @extends('Layout.App2')
-
+@section('title','Login')
 @section('title','Admin Login')
 
 @section('loginContent')
@@ -11,7 +11,7 @@
         <div class="col-3"></div>
 
         <div class="col-6 pb-5">
-            
+
             <!-- Material form login -->
             <div class="card ">
 
@@ -66,7 +66,7 @@
     </div>
 
 </div>
-    
+
 @endsection
 
 
@@ -85,7 +85,7 @@
         let url ="/onlogin";
 
         axios.post(url,{username:username, password:password})
-        .then(function (res) {  
+        .then(function (res) {
             if (res.status == 200 && res.data == 1) {
                 window.location.href = "/";
             }else{
@@ -107,7 +107,7 @@
     })
 
 </script>
-    
+
 @endsection
 
 

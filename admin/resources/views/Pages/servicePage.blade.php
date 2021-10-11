@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Services')
 @section('content')
 
 <div id="servicesDataTable" class="container d-none">
@@ -21,7 +21,7 @@
 				</thead>
 
 				<tbody id="servicesTable">
-					
+
 				</tbody>
 
 			</table>
@@ -39,7 +39,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100 text-center" id="myModalLabel">Add New Services </h4>
@@ -58,16 +58,16 @@
 						<div class="">
 							<label for="serviceSortDesInput">Services Sort Description</label>
 							<input type="text" id="serviceSortDesInput" class="form-control">
-							
+
 						</div>
 						<div class="">
 							<label for="serviceImgURLInput">Services Img URL</label>
 							<input type="Text" id="serviceImgURLInput" class="form-control">
-							
+
 						</div>
-						
+
 					</form>
-				
+
 				</div>
 
 
@@ -114,7 +114,7 @@
 
 				<h4 class="text-center p-3 mt-2" >Do you want to delete  ?</h4>
 				<h4 id="modalDeleteDataID" class="text-center d-none" ></h4>
-			
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>
@@ -134,7 +134,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100" id="myModalLabel">Update Services </h4>
@@ -155,16 +155,16 @@
 						<div class="">
 							<label for="serviceTitleDes">Services Sort Description</label>
 							<input type="text" id="serviceSortDes" value="" class="form-control">
-							
+
 						</div>
 						<div class="">
 							<label for="serviceTitle">Services Img URL</label>
 							<input type="Text" id="serviceImgURL" value="" class="form-control">
-							
+
 						</div>
-						
+
 					</form>
-				
+
 				</div>
 
 
@@ -209,9 +209,9 @@
 	getServicesData();
 
 
-	
+
 function getServicesData(){
-    
+
     axios.get('/getServicesData')
     .then((res) => {
 
@@ -253,15 +253,15 @@ function getServicesData(){
         }else{
             $('#loadingDiv').addClass('d-none');
             $('#wrongDiv').removeClass('d-none');
-            
+
         }
-        
+
     }).catch((err) => {
         $('#loadingDiv').addClass('d-none');
         $('#wrongDiv').removeClass('d-none');
-        
+
     })
-    
+
 }
 
 
@@ -279,10 +279,10 @@ $('#addNewConfirmBtn').click(()=>{
     addNewService(title, sortDes, imgURL);
 })
 
-function addNewService(title, sortDes, imgURL) { 
+function addNewService(title, sortDes, imgURL) {
 
     $('#addNewConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/addNewServices', {title:title, sortDes:sortDes, imgURL:imgURL })
     .then((res)=>{
 
@@ -310,15 +310,15 @@ $('#dataUpdateConfirmBtn').click(function(){
     let title   = $('#serviceTitle').val();
     let sortDes = $('#serviceSortDes').val();
     let imgURL  = $('#serviceImgURL').val();
-    
+
     $('#editDataModal').modal('hide');
     servicesUpdate(id, title, sortDes, imgURL);
 })
 
-function servicesUpdate(id, title, sortDes, imgURL) { 
+function servicesUpdate(id, title, sortDes, imgURL) {
 
     $('#dataUpdateConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/serviceUpdate', { id:id, title:title, sortDes:sortDes, imgURL:imgURL })
     .then((res)=>{
 
@@ -363,23 +363,23 @@ function getServicesByID(servicesID){
         $('#editLoadingDiv').addClass('d-none');
         $('#editWrongDiv').removeClass('d-none');
     })
-    
+
 }
 
 
 
 // Data Delete
-$('#dataDeleteConfirmBtn').click(function(){ 
+$('#dataDeleteConfirmBtn').click(function(){
     $('#deleteDataModal').modal('hide');
     let id = $('#modalDeleteDataID').html();
     servicesDelete(id);
 
  })
 
-function servicesDelete(deleteID) { 
+function servicesDelete(deleteID) {
 
     $('#dataDeleteConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/serviceDelete', {id:deleteID})
     .then((res)=>{
 
@@ -396,7 +396,7 @@ function servicesDelete(deleteID) {
         $('#dataDeleteConfirmBtn').html("Yes");
         toastr.error('Somthing went wrong..');
     })
-    
+
 
 }
 

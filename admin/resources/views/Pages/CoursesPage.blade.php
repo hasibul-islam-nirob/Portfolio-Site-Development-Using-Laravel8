@@ -1,6 +1,6 @@
 @extends('Layout.App')
 
-
+@section('title','Courses')
 @section('content')
 
 <div id="coursesDataTable" class="container d-none">
@@ -22,7 +22,7 @@
 				</thead>
 
 				<tbody id="coursesTable">
-					
+
 				</tbody>
 
 			</table>
@@ -39,7 +39,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100" id="myModalLabel">Add New Course </h4>
@@ -62,42 +62,42 @@
 								<div class="">
 									<label>Course Sort Description</label>
 									<input type="Text" id="courseSortDesInput" value="" class="form-control">
-			
+
 								</div>
 								<div >
 									<label>Course Description</label>
 									<textarea id="courseDesInput" value="" class="form-control" rows="3" cols="50">
 									</textarea>
-									
+
 								</div>
 								<div >
 									<label>Course Total Class</label>
 									<input type="Text" id="totalClassInput" value="" class="form-control">
-									
+
 								</div>
 							</div>
 							<div class="col-6">
 								<div >
 									<label>Course Total Student</label>
 									<input type="Text" id="totalStudentInput" value="" class="form-control">
-									
+
 								</div>
 								<div >
 									<label>Course Price</label>
 									<input type="Text" id="coursePriceInput" value="" class="form-control">
-									
+
 								</div>
 								<div>
 									<label>Course Img URL</label>
 									<input type="Text" id="courseImgURLInput" value="" class="form-control">
-									
+
 								</div>
 							</div>
-						
+
 						</div>
-	
+
 					</form>
-				
+
 				</div>
 
 				<div class="modal-footer">
@@ -144,7 +144,7 @@
 
 				<h4 class="text-center p-3 mt-2" >Do you want to delete  ?</h4>
 				<h4 id="modalDeleteDataID" class="text-center d-none" ></h4>
-			
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>
@@ -164,7 +164,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100" id="myModalLabel">Update Course </h4>
@@ -188,42 +188,42 @@
 								<div class="">
 									<label>Course Sort Description</label>
 									<input type="Text" id="courseSortDes" value="" class="form-control">
-			
+
 								</div>
 								<div >
 									<label>Course Description</label>
 									<textarea id="courseDes" value="" class="form-control" rows="3" cols="50">
 									</textarea>
-									
+
 								</div>
 								<div >
 									<label>Course Total Class</label>
 									<input type="Text" id="totalClass" value="" class="form-control">
-									
+
 								</div>
 							</div>
 							<div class="col-6">
 								<div >
 									<label>Course Total Student</label>
 									<input type="Text" id="totalStudent" value="" class="form-control">
-									
+
 								</div>
 								<div >
 									<label>Course Price</label>
 									<input type="Text" id="coursePrice" value="" class="form-control">
-									
+
 								</div>
 								<div>
 									<label>Course Img URL</label>
 									<input type="Text" id="courseImgURL" value="" class="form-control">
-									
+
 								</div>
 							</div>
-						
+
 						</div>
-	
+
 					</form>
-				
+
 				</div>
 
 
@@ -278,13 +278,13 @@ function getCoursesData () {
             $('#coursesTable').empty();
 
             var jsonData = res.data;
-            $.each(jsonData, function (i) { 
+            $.each(jsonData, function (i) {
                 $('<tr>').html(
                     "<td class='th-sm'><img class='table-img' src="+jsonData[i].courseImg +"></td>"+
                     "<td class='th-sm'>"+ jsonData[i].courseName +"</td>"+
                     "<th class='th-sm'>"+ jsonData[i].courseSortDes +"</th>"+
                     "<td class='th-sm'><a class='coursesEditBtn' data-id="+jsonData[i].id +"><i class='fas fa-edit'></i></a></td>"+
-                    "<td class='th-sm'><a class='coursesDeleteBtn' data-id="+jsonData[i].id +"><i class='fas fa-trash-alt'></i></a></td>" 
+                    "<td class='th-sm'><a class='coursesDeleteBtn' data-id="+jsonData[i].id +"><i class='fas fa-trash-alt'></i></a></td>"
                 ).appendTo('#coursesTable');
 
              });
@@ -309,18 +309,18 @@ function getCoursesData () {
             $('#loadingDiv').addClass('d-none');
             $('#wrongDiv').removeClass('d-none');
         }
-        
+
     }).catch((err) => {
         $('#loadingDiv').addClass('d-none');
         $('#wrongDiv').removeClass('d-none');
     })
-    
+
 };
 
 
 
 // Add New Course
-$('#addNewCoursesBtn').click(function () {  
+$('#addNewCoursesBtn').click(function () {
     $('#addNewDataModal').modal('show');
 })
 
@@ -335,7 +335,7 @@ $('#addNewConfirmBtn').click(function(){
     addNewCourse(title, sortDes, longDes, totalClass, students, pricrs, img);
     $('#addNewDataModal').modal('hide');
 })
-function addNewCourse(title, sortDes, longDes, totalClass, students, pricrs, img) {  
+function addNewCourse(title, sortDes, longDes, totalClass, students, pricrs, img) {
     $('#addNewConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
 
     axios.post('/addNewCourse',{title:title, sortDes:sortDes, longDes:longDes, totalClass:totalClass, students:students, pricrs:pricrs, img:img})
@@ -349,11 +349,11 @@ function addNewCourse(title, sortDes, longDes, totalClass, students, pricrs, img
             toastr.error('New Course Add Fail..');
         }
 
-    }).catch(function (error) {  
+    }).catch(function (error) {
         $('#addNewConfirmBtn').html("Save");
         toastr.error('Somthing went wrong..');
     })
-  
+
 }
 
 
@@ -377,7 +377,7 @@ $('#dataUpdateConfirmBtn').click(function () {
     courseUpdate(id, title, sortDes, longDes, totalClass, students, pricrs, img);
 })
 
-function courseUpdate(id, title, sortDes, longDes, totalClass, students, pricrs, img) {  
+function courseUpdate(id, title, sortDes, longDes, totalClass, students, pricrs, img) {
     $('#dataUpdateConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
 
     axios.post('/courseUpdate',{id:id, title:title, sortDes:sortDes, longDes:longDes, totalClass:totalClass, students:students, pricrs:pricrs, img:img})
@@ -391,11 +391,11 @@ function courseUpdate(id, title, sortDes, longDes, totalClass, students, pricrs,
             toastr.error('Update Fail..');
         }
 
-    }).catch(function (error) {  
+    }).catch(function (error) {
         $('#dataUpdateConfirmBtn').html("Update");
         toastr.error('Somthing went wrong..');
     })
-  
+
 }
 
 
@@ -428,7 +428,7 @@ function getCoursesByID(courseID){
         $('#editLoadingDiv').addClass('d-none');
         $('#editWrongDiv').removeClass('d-none');
     })
-    
+
 }
 
 
@@ -442,9 +442,9 @@ $('#dataDeleteConfirmBtn').click(function () {
     coursesDelete(id);
 })
 
-function coursesDelete(deleteID) { 
+function coursesDelete(deleteID) {
     $('#dataDeleteConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/courseDelete', {id:deleteID})
     .then((res)=>{
         if (res.status==200 && res.data == 1) {
@@ -460,7 +460,7 @@ function coursesDelete(deleteID) {
         $('#dataDeleteConfirmBtn').html("Yes");
         toastr.error('Somthing went wrong..');
     })
-    
+
 }
 
 

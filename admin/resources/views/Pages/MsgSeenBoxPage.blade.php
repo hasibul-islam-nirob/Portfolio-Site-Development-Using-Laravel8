@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Messages Seen Box')
 @section('content')
 
 <div id="massageSeenDataTable" class="container d-none">
@@ -19,8 +19,8 @@
 				</thead>
 
 				<tbody id="massageSeenTable">
-					
-					
+
+
 				</tbody>
 
 			</table>
@@ -61,7 +61,7 @@
 
 				<h4 class="text-center p-3 mt-2" >Do you want to unseen this message  ?</h4>
 				<h4 id="msgUnSeenModalID" class="text-center d-none" ></h4>
-			
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>
@@ -88,7 +88,7 @@
 
 				<h4 class="text-center p-3 mt-2" >Do you want to delete this message  ?</h4>
 				<h4 id="msgDeleteModalID" class="text-center " ></h4>
-			
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>

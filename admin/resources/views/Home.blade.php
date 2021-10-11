@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Home')
 @section('content')
 
 
@@ -74,7 +74,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 </div>
 

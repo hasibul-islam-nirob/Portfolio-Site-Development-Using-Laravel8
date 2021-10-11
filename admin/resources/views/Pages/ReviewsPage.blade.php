@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Reviews')
 @section('content')
 
 <div id="reviewsDataTable" class="container d-none">
@@ -21,7 +21,7 @@
 				</thead>
 
 				<tbody id="reviewsTable">
-					
+
 				</tbody>
 
 			</table>
@@ -55,7 +55,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100 text-center" id="myModalLabel">Add New Services </h4>
@@ -74,16 +74,16 @@
 						<div class="">
 							<label >Client Says</label>
 							<input type="text" id="reviewSayInput" class="form-control">
-							
+
 						</div>
 						<div class="">
 							<label >Client Img URL</label>
 							<input type="Text" id="reviewImgURLInput" class="form-control">
-							
+
 						</div>
-						
+
 					</form>
-				
+
 				</div>
 
 
@@ -112,7 +112,7 @@
 
 				<h4 class="text-center p-3 mt-2" >Do you want to delete  ?</h4>
 				<h4 id="modalDeleteDataID" class="text-center d-none" ></h4>
-			
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>
@@ -132,7 +132,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100" id="myModalLabel">Update Reviews </h4>
@@ -153,16 +153,16 @@
 						<div class="">
 							<label >Client Says</label>
 							<input type="text" id="clientSortDes" value="" class="form-control">
-							
+
 						</div>
 						<div class="">
 							<label >Client Img URL</label>
 							<input type="Text" id="clientImgURL" value="" class="form-control">
-							
+
 						</div>
-						
+
 					</form>
-				
+
 				</div>
 
 
@@ -279,10 +279,10 @@ $('#addNewConfirmBtn').click(()=>{
     addNewReview(title, sortDes, imgURL);
 })
 
-function addNewReview(title, sortDes, imgURL) { 
+function addNewReview(title, sortDes, imgURL) {
 
     $('#addNewConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/addNewReview', {title:title, sortDes:sortDes, imgURL:imgURL })
     .then((res)=>{
 

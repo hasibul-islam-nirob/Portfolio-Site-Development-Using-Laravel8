@@ -1,5 +1,7 @@
 @extends('Layout.App')
 
+@section('title','Contact')
+
 @section('content')
 
     <div class="container-fluid jumbotron mt-5 ">

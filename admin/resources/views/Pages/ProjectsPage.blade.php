@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Project')
 @section('content')
 
 <div id="projectsDataTable" class="container d-none">
@@ -22,7 +22,7 @@
 				</thead>
 
 				<tbody id="projectsTable">
-					
+
 				</tbody>
 
 			</table>
@@ -64,7 +64,7 @@
 
 				<h4 class="text-center p-3 mt-2" >Do you want to delete  ?</h4>
 				<h4 id="modalDeleteDataID" class="text-center d-none" ></h4>
-			
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-success btn-sm" data-dismiss="modal">No</button>
@@ -84,7 +84,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100" id="myModalLabel">Update Project </h4>
@@ -105,16 +105,16 @@
 						<div class="">
 							<label for="serviceTitleDes">Projects Sort Description</label>
 							<input type="text" id="projectSortDes" value="" class="form-control">
-							
+
 						</div>
 						<div class="">
 							<label for="serviceTitle">Projects Img URL</label>
 							<input type="Text" id="projectImgURL" value="" class="form-control">
-							
+
 						</div>
-						
+
 					</form>
-				
+
 				</div>
 
 
@@ -154,7 +154,7 @@
 
 	<!-- Change class .modal-sm to change the size of the modal -->
 	<div class="modal-dialog modal-lg" role="document">
-		
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title w-100 text-center" id="myModalLabel">Add New Project </h4>
@@ -173,16 +173,16 @@
 						<div class="">
 							<label >Project Sort Description</label>
 							<input type="text" id="projectSortDesInput" class="form-control">
-							
+
 						</div>
 						<div class="">
 							<label >Project Img URL</label>
 							<input type="Text" id="projectImgURLInput" class="form-control">
-							
+
 						</div>
-						
+
 					</form>
-				
+
 				</div>
 
 
@@ -207,13 +207,13 @@
 getAllProjects()
 
 
-function getAllProjects() {  
+function getAllProjects() {
 
     axios.get('/getProjects')
     .then( function(res){
 
         if (res.status == 200) {
-            
+
             $('#projectsDataTable').removeClass('d-none');
             $('#loadingDiv').addClass('d-none');
             $('#projectsTable').empty();
@@ -252,12 +252,12 @@ function getAllProjects() {
             $('#loadingDiv').addClass('d-none');
             $('#wrongDiv').removeClass('d-none');
         }
-        
+
     }).catch(function (error){
         $('#loadingDiv').addClass('d-none');
         $('#wrongDiv').removeClass('d-none');
     })
-    
+
 }
 
 
@@ -272,13 +272,13 @@ $('#addNewConfirmBtn').click(()=>{
     let imgURL  = $('#projectImgURLInput').val();
     addNewProject(title, sortDes, imgURL);
     $('#AddNewDataModal').modal('hide');
-    
+
 })
 
-function addNewProject(title, sortDes, imgURL) { 
+function addNewProject(title, sortDes, imgURL) {
 
     $('#addNewConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/addProject', {title:title, sortDes:sortDes, imgURL:imgURL })
     .then((res)=>{
 
@@ -307,15 +307,15 @@ $('#dataUpdateConfirmBtn').click(function(){
     let title   = $('#projectTitle').val();
     let sortDes = $('#projectSortDes').val();
     let imgURL  = $('#projectImgURL').val();
-    
+
     $('#editDataModal').modal('hide');
     projectUpdate(id, title, sortDes, imgURL);
 })
 
-function projectUpdate(id, title, sortDes, imgURL) { 
+function projectUpdate(id, title, sortDes, imgURL) {
 
     $('#dataUpdateConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/projectUpdate', { id:id, title:title, sortDes:sortDes, imgURL:imgURL })
     .then((res)=>{
 
@@ -358,7 +358,7 @@ function getProjectByID(servicesID){
         $('#editLoadingDiv').addClass('d-none');
         $('#editWrongDiv').removeClass('d-none');
     })
-    
+
 }
 
 
@@ -371,10 +371,10 @@ $('#dataDeleteConfirmBtn').click(function(){
     projectDelete(id);
 })
 
-function projectDelete(deleteID) { 
+function projectDelete(deleteID) {
 
     $('#dataDeleteConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>");
-    
+
     axios.post('/projectDelete', {id:deleteID})
     .then((res)=>{
 
@@ -391,7 +391,7 @@ function projectDelete(deleteID) {
         $('#dataDeleteConfirmBtn').html("Yes");
         toastr.error('Somthing went wrong..');
     })
-    
+
 
 }
 

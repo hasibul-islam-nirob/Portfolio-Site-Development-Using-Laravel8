@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class topBannerModel extends Model
 {
     use HasFactory;
-    public $table='topBanner_table';
+    public $table='top_banner_table';
     public $primaryKey='id';
     public $incrementing=true;
     public $keyType='int';

@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Setting')
 @section('content')
 
 <div class="p-3">
@@ -9,14 +9,14 @@
             <div class="col">
                 <div>
                     <div class="modal-dialog modal-notify modal-primary" >
-                        
+
                         <div class="modal-content">
-                            
+
                             <div class="modal-header text-center">
                                 <h4 class="modal-title white-text w-100 font-weight-bold py-1">Top Banner</h4>
                             </div>
-                    
-                            
+
+
 
                             @empty($topBannerData)
                             <div class="modal-body py-2">
@@ -37,9 +37,9 @@
 
                             </div>
 
-                            
-                            <div class="modal-footer justify-content-center">    
-                                <button id="InsertBtnTopBanner" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>                          
+
+                            <div class="modal-footer justify-content-center">
+                                <button id="InsertBtnTopBanner" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>
                             </div>
                             @endempty
 
@@ -63,15 +63,15 @@
                             </div>
 
 
-                           
-                            <div class="modal-footer justify-content-center">    
+
+                            <div class="modal-footer justify-content-center">
                                 <button id="UpdateBtnTopBanner" class="btn btn-success waves-effect">Update <i class="fas fa-paper-plane-o ml-1"></i></a>
                             </div>
                             @endforeach
-                            
-                            
+
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                             <div class="modal-header text-center">
                                 <h4 class="modal-title white-text w-100 font-weight-bold py-1">Site Title</h4>
                             </div>
-                    
+
                             <!--Body-->
                             <div class="modal-body py-2">
                                 <div>
@@ -95,7 +95,7 @@
                                 </div>
 
                             </div>
-                    
+
                             <!--Footer-->
                             <div class="modal-footer justify-content-center">
                             <a type="button" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>
@@ -114,28 +114,28 @@
             <div class="col">
                 <div>
                     <div class="modal-dialog modal-notify modal-primary modal-lg" >
-                        
+
                         <div class="modal-content">
-                            
+
                             <div class="modal-header text-center">
                                 <h4 class="modal-title white-text w-100 font-weight-bold py-1">Footer</h4>
                             </div>
-                    
+
                             @empty($footerData)
                             <div class="modal-body py-2">
-                                
+
                                 <div class="row">
                                     <div class="col">
                                         <div>
                                             <label data-error="wrong">Facebook Link </label>
                                             <input value="" type="text" id="f_fbEm" class="form-control validate">
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >GitHub Link </label>
                                             <input value="" type="text" id="f_gitEm" class="form-control validate">
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >LinkedIn Link </label>
                                             <input value="" type="text" id="f_lnEm" class="form-control validate">
@@ -148,12 +148,12 @@
                                             <textarea id="f_addressEm" value="" class="form-control" rows="2" cols="30">
                                             </textarea>
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >Mobile No  </label>
                                             <input value="" type="number" id="f_mobileEm" class="form-control validate">
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >Mail Address </label>
                                             <input value="" type="mail" id="f_mailEm" class="form-control validate">
@@ -165,8 +165,8 @@
 
                             </div>
 
-                            <div class="modal-footer justify-content-center">    
-                                <button id="InsertFooterDataBtn" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>                          
+                            <div class="modal-footer justify-content-center">
+                                <button id="InsertFooterDataBtn" class="btn btn-success waves-effect">Save <i class="fas fa-paper-plane-o ml-1"></i></a>
                             </div>
                             @endempty
 
@@ -176,19 +176,19 @@
 
                             @foreach ($footerData as $footerData)
                             <div class="modal-body py-2">
-                                
+
                                 <div class="row">
                                     <div class="col">
                                         <div>
                                             <label data-error="wrong">Facebook Link </label>
                                             <input value="{{ $footerData->fb_link }}" type="text" id="f_fb" class="form-control validate">
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >GitHub Link </label>
                                             <input value="{{ $footerData->git_link }}" type="text" id="f_git" class="form-control validate">
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >LinkedIn Link </label>
                                             <input value="{{ $footerData->ln_link }}" type="text" id="f_ln" class="form-control validate">
@@ -200,12 +200,12 @@
                                             <label>Address</label>
                                             <textarea id="f_address" value="" class="form-control" rows="2" cols="30">{{ $footerData->address }}</textarea>
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >Mobile No  </label>
                                             <input value="{{ $footerData->mobileNo }}" type="number" id="f_mobile" class="form-control validate">
                                         </div>
-        
+
                                         <div>
                                             <label data-error="wrong" >Mail Address </label>
                                             <input value="{{ $footerData->mailAdd }}" type="mail" id="f_mail" class="form-control validate">
@@ -217,14 +217,14 @@
 
                             </div>
 
-                            <div class="modal-footer justify-content-center">    
-                                <button id="UpdateFooterDataBtn" class="btn btn-success waves-effect"> Update <i class="fas fa-paper-plane-o ml-1"></i></a>                          
+                            <div class="modal-footer justify-content-center">
+                                <button id="UpdateFooterDataBtn" class="btn btn-success waves-effect"> Update <i class="fas fa-paper-plane-o ml-1"></i></a>
                             </div>
                             @endforeach
 
 
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -309,7 +309,7 @@ function toBannerDataUpdate(title, subtitle, desc) {
 
             } else {
 
-                
+
                 $('#UpdateBtnTopBanner').html("Update Fail..");
                 setTimeout(function() {
                     $('#UpdateBtnTopBanner').html("Update");

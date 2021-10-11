@@ -1,5 +1,5 @@
 @extends('Layout.App')
-
+@section('title','Visitors')
 @section('content')
 
 <div class="container">
@@ -25,9 +25,9 @@
                         <td class="th-sm">{{ $item->mac_address }}</td>
                         <td class="th-sm">{{ $item->visiting_time }}</td>
                     </tr>
-                        
+
                     @endforeach
-                    
+
                 </tbody>
             </table>
 
