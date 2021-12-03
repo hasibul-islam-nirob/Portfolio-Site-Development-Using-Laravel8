@@ -26,7 +26,7 @@ class HomeController extends Controller
         $serviceData = json_decode(ServicesModel::all());
         $coursesData = json_decode(CoursesModel::orderby('id','desc')->limit(6)->get() );
         $projectsData = json_decode(ProjectsModel::all());
-        $reviewData = json_decode(ClientReviewModel::all());
+        $reviewData = json_decode(ClientReviewModel::orderby('id','desc')->limit(6)->get() );
         $topBannerData = json_decode(topBannerModel::where('id','=','1')->get());
         $footerData = json_decode(FooterModel::where('id','=','1')->get());
 

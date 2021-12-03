@@ -1,7 +1,7 @@
 
 <div class="container section-marginTop text-center">
-    <h1 class="section-title">Our Services </h1>
-    <h1 class="section-subtitle">All the other services we provide, including IT courses, project based source code </h1>
+    <h1 class="section-title">My Services </h1>
+    <h1 class="section-subtitle">Below are some details of the service that I provide </h1>
     <div class="row">
 
         @foreach($servicesData as $servicesData)
@@ -25,7 +25,7 @@
 <script type="text/javascript">
 
 
-    
+
 
 </script>
 

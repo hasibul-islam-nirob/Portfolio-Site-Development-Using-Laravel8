@@ -37,7 +37,7 @@ $(document).ready(function() {
         loop:true,
         dot:true,
         autoplayHoverPause:true,
-        autoplaySpeed:100,
+        autoplaySpeed:1000,
         margin:10,
         responsive:{
             0:{

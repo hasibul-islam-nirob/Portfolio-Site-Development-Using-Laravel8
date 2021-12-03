@@ -24,7 +24,7 @@
                 <hr>
                 <a class="footer-link" target="_blank"  href="{{url('/contact')}}">Contact</a><br>
                 <a class="footer-link" target="_blank"  href="{{url('/projects')}}">Projects</a><br>
-                <a class="footer-link" target="_blank"  href="{{url('/courses')}}">Courses </a><br>
+                <a class="footer-link" target="_blank"  href="{{url('/')}}">Courses </a><br>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-6">
                 <h3 class="service-card-title">Law's</h3>
