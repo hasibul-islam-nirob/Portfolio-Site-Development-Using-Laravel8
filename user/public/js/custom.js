@@ -1,6 +1,7 @@
+
+
+
 // Owl Carousel Start..................
-
-
 
 $(document).ready(function() {
     var one = $("#one");

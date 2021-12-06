@@ -17,4 +17,9 @@ class ProjectController extends Controller
             'footerData'=>$footerData
         ]);
     }
+
+    public function getProjectInfoByID(Request $req){
+        $id = $req->input('projectID');
+        return $result = json_encode(ProjectsModel::where('id','=',$id)->get());
+    }
 }
